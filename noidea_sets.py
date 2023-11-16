@@ -11,24 +11,20 @@ m=int(m)                    #converting m to int of m
 
 input_line2=input()         #taking multiple values on same line and storing them in array
 values1=input_line2.split()     #splitting values into individual values
-values1=[int(x) for x in values1]       #converting each element in values1 to int
+values1=[int(x) for x in values1 if len(values1)<=n]   #converting elements of array to int for only values less than len(n)
 
+    
 input_line3=input()             #taking multiple values on same line with separated space
-values2=input_line3.split()     #splitting values to individual values
-values2=[int(y) for y in values2]   #converting values to int of each element in values2
+A=input_line3.split()     #splitting values to individual values
+A=[int(y) for y in A if len(A)<=m]   #converting values to int of each element in A till len(A)<=m
 
 input_line4=input()             #taking multiple values with separated space
-A,B=input_line4.split()         #splitting multiple values to both A and B variables
-A=int(A)                        #convert to int
-B=int(B)                        #convert to int
-
-n1=set(values1)         #converting values1 to set from list
-m1=set(values2)            #converting values2 to set from list
+B=input_line4.split()         #splitting multiple values to both A and B variables
+B=[int(z) for z in B if len(B)<=m]                      #convert to int in B till len(B)<=m
 happiness=0
-
-for i in n1:
-    if i == A:
+for i in values1:                   #for each element in array 
+    if i in A:        #if each element in array belongs to A then increase happiness
         happiness=happiness+1
-    elif i == B:
+    elif i in B:                     #if each element in array belongs to B then decrease happiness
         happiness=happiness-1
 print(happiness)
