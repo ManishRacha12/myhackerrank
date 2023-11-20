@@ -1,4 +1,5 @@
-'''The input is read by the provided locked code template. In the first line, there is a single integer  denoting the number of words. In the second line, there are  space-separated lowercase words.
+'''The input is read by the provided locked code template. In the first line, there is a single integer  
+denoting the number of words. In the second line, there are  space-separated lowercase words.
 
 '''
 n=int(input())
@@ -14,10 +15,8 @@ for word in string_words:
             count=count+1
     if count%2==0:
         score=score+2
-        print("even score",score)
     else:
         score=score+1
-        print("odd score",score)
     count=0
 print(score)
     
