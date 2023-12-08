@@ -14,7 +14,7 @@ def taskdisplay():
             s=taskaddition()
             print("Below are the task details: \n",s)
         elif choice1=='no':
-            print("Thank you:")
+            print("Thank yosu:")
             exit
     else:
         return T1
@@ -55,6 +55,9 @@ if __name__=='__main__':
         elif choice=='3':
             taskremove()
             exit
+            
+    else:
+        exit
         
         
         
