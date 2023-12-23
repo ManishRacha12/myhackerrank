@@ -6,3 +6,4 @@ for i in string:
     if string[j][0]=='a':
         print (string[j])
     j=j+1
+
