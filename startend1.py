@@ -7,4 +7,9 @@ for k in a:
     for l in b:
         if a[i]==b[j]:
             print(i)
-        i=i+1
+            if j<=i:
+                j=j+1
+                i=i+1
+        else:
+            i=i+1    
+    i=i+1
