@@ -4,6 +4,4 @@ if __name__ == '__main__':
         name = input()
         score = float(input())
         stu.append([name,score])
-    print(stu)
-
-
+    
