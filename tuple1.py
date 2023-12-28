@@ -9,8 +9,6 @@ The first line contains an integer, , denoting the number of elements in the tup
 The second line contains  space-separated integers describing the elements in tuple .
 
 '''
-n = int(input())
-integer_list = map(int, input().split())
-lists = [x for x in integer_list]
-t = tuple(lists)
+n=int(input())
+t=tuple(map(int, input().split()))
 print(hash(t))
