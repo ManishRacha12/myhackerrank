@@ -1,4 +1,9 @@
 n=int(input())
 arr=list(map(int,input().split()))
-visited = [False for i in range(n)]
-print(visited)
+arr=sorted(arr)
+list1=[]
+for i in arr:
+    if arr.count(i)>1:
+        list1.append(arr.count(i)-1)
+    
+print(list1)
