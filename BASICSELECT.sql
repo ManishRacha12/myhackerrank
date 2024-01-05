@@ -200,3 +200,60 @@ SELECT ROUND(MAX(LAT_N),4) FROM STATION WHERE LAT_N<137.2345;
 SELECT ROUND(LONG_W,4) FROM STATION WHERE LAT_N=
 (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N<137.2345);
 
+
+
+
+/*You are given a table, Projects, containing three columns: Task_ID, Start_Date and End_Date. It is guaranteed that the difference between the End_Date and the Start_Date is equal to 1 day for each row in the table.
+If the End_Date of the tasks are consecutive, then they are part of the same project. Samantha is interested in finding the total number of different projects completed.
+
+Write a query to output the start and end dates of projects listed by the number of days it took to complete the project in ascending order. If there is more than one project that have the same number of completion days, then order by the start date of the project.
+
+
+*/
+
+Select Start_Date, MIN(End_Date)
+From
+    (Select b.Start_Date
+    From Projects as a
+    RIGHT Join Projects as b
+    ON b.Start_Date = a.End_Date
+    WHERE a.Start_Date IS NULL
+    ) sd,
+    (Select a.End_Date
+    From Projects as a
+    Left Join Projects as b
+    ON b.Start_Date = a.End_Date
+    WHERE b.End_Date IS NULL
+    ) ed
+Where Start_Date < End_Date
+GROUP BY Start_Date
+ORDER BY datediff(MIN(End_Date), Start_Date), Start_Date
+
+
+/*Handling dates part 2
+
+Dates cannot be added or subtracted like numbers. To perform calculations on dates, we must convert them to numbers using the JULIANDAY function. This function converts dates to the Julian day, a continuous count of days since January 1, 4713 BC, which is used by astronomers for time intervals and comparisons between different calendars.
+
+*/
+
+SELECT ID FROM EVENTS WHERE JULIANDAY(END)-JULIANDAY(START)<3;
+
+
+
+
+/*A quartic function is defined:
+
+f(x) = ax4+bx3+cx2+dx+e
+
+Let's define the constant parameters:
+
+a = 3
+b = 5
+c = 0.9
+d = 2.2
+e = 0
+Fetch the ids and the quartic function where x is the id, and rename the column to quartic
+*/
+
+
+SELECT IDS, 3*ID*ID*ID*ID+5*ID*ID*ID+0.9*ID*ID+2.2*ID+0 AS QUATRIC FROM ITEMS;
